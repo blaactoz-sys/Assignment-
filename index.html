@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -30,13 +30,25 @@
             @apply px-8 py-3 rounded-lg font-bold transition-transform duration-300 transform hover:-translate-y-1 shadow-lg;
         }
         .btn-hero-green {
-            @apply bg-gradient-to-r from-teal-500 to-cyan-400 text-white hover:from-teal-600 hover:to-cyan-500;
+            @apply bg-gradient-to-r from-teal-500 to-cyan-400 text-white hover:from-teal-600 hover:to-cyan-500 border-2 border-white;
         }
         .btn-hero-red {
-            @apply bg-gradient-to-r from-rose-500 to-orange-400 text-white hover:from-rose-600 hover:to-orange-500;
+            @apply bg-gradient-to-r from-rose-500 to-orange-400 text-white hover:from-rose-600 hover:to-orange-500 border-2 border-white;
         }
         .modal-overlay {
             @apply fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -55,7 +67,8 @@
                             <a href="#home" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Home</a>
                             <a href="#about" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">About Us</a>
                             <a href="#services" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Services</a>
-                            <a href="#how-it-works" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">How It Works</a>
+                            <a href="#ai-matching" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">✨ AI Match</a>
+                            <a href="#how-it-works" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Process</a>
                             <a href="#contact" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Contact</a>
                             <button id="login-btn" class="bg-white text-gray-700 hover:bg-gray-200 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-semibold shadow-sm ring-1 ring-gray-200">Login / Sign Up</button>
                         </div>
@@ -69,7 +82,8 @@
                     <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
                     <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About Us</a>
                     <a href="#services" class="block py-2 text-gray-600 hover:text-blue-600">Services</a>
-                    <a href="#how-it-works" class="block py-2 text-gray-600 hover:text-blue-600">How It Works</a>
+                    <a href="#ai-matching" class="block py-2 text-gray-600 hover:text-blue-600">✨ AI Match</a>
+                    <a href="#how-it-works" class="block py-2 text-gray-600 hover:text-blue-600">Process</a>
                     <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
                     <button id="mobile-login-btn" class="w-full mt-4 btn bg-blue-600 text-white">Login / Sign Up</button>
                 </div>
@@ -93,8 +107,10 @@
         <!-- About Us Section -->
         <section id="about" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">Your Trusted Intermediary</h2>
-                <p class="section-subtitle">At BizAid, we specialize in making connections that matter. We understand the challenges of finding reliable outsourcing partners. Our mission is to simplify this process, ensuring seamless collaboration and successful project outcomes.</p>
+                <div class="max-w-3xl mx-auto mb-12 text-center bg-white p-8 rounded-2xl border-2 border-black shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Your Trusted Intermediary</h2>
+                    <p class="text-lg text-gray-600 font-semibold">At BizAid, we specialize in making connections that matter. We understand the challenges of finding reliable outsourcing partners. Our mission is to simplify this process, ensuring seamless collaboration and successful project outcomes.</p>
+                </div>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80" alt="Business meeting" class="rounded-xl shadow-xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Meeting';">
@@ -129,8 +145,10 @@
         <!-- Services Section -->
         <section id="services" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">What We Offer</h2>
-                <p class="section-subtitle">Our services are designed to support your business at every stage of the outsourcing journey.</p>
+                 <div class="max-w-3xl mx-auto mb-12 text-center bg-white p-8 rounded-2xl border-2 border-black shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">What We Offer</h2>
+                    <p class="text-lg text-gray-600 font-semibold">Our services are designed to support your business at every stage of the outsourcing journey.</p>
+                </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card text-center">
                         <i class="fas fa-search-dollar text-4xl text-blue-600 mb-4"></i>
@@ -150,12 +168,37 @@
                 </div>
             </div>
         </section>
+        
+        <!-- AI Partner Matching Section -->
+        <section id="ai-matching" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto mb-12 text-center bg-white p-8 rounded-2xl border-2 border-black shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">✨ AI-Powered Partner Matching</h2>
+                    <p class="text-lg text-gray-600 font-semibold">Not sure where to start? Describe your project, and our AI will suggest the best types of partners for your needs.</p>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <div class="space-y-4">
+                        <label for="project-description" class="block text-lg font-medium text-gray-700">Describe your project needs:</label>
+                        <textarea id="project-description" rows="6" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., 'I need to build a mobile app for my e-commerce store with a modern UI and a secure payment gateway.'"></textarea>
+                        <button id="ai-match-btn" class="w-full btn bg-blue-600 text-white">Find My Perfect Partner</button>
+                    </div>
+                    <div id="ai-results" class="mt-6 hidden">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Our AI Recommends:</h3>
+                        <div id="loader" class="loader mx-auto"></div>
+                        <div id="ai-suggestions" class="space-y-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- How It Works Section -->
-        <section id="how-it-works" class="py-20">
+        <section id="how-it-works" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">Our Simple Process</h2>
-                <p class="section-subtitle">We've streamlined the process of finding the right partner. Here’s how we connect you to success in four easy steps.</p>
+                 <div class="max-w-3xl mx-auto mb-12 text-center bg-white p-8 rounded-2xl border-2 border-black shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Our Simple Process</h2>
+                    <p class="text-lg text-gray-600 font-semibold">We've streamlined the process of finding the right partner. Here’s how we connect you to success in four easy steps.</p>
+                </div>
                 <div class="relative">
                     <!-- The connecting line -->
                     <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-300 -translate-y-1/2"></div>
@@ -186,10 +229,12 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-white">
+        <section id="contact" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="section-title">Let's Build Together</h2>
-                <p class="section-subtitle">Ready to find your ideal outsourcing partner or want to join our network? Reach out to us today.</p>
+                <div class="max-w-3xl mx-auto mb-12 text-center bg-white p-8 rounded-2xl border-2 border-black shadow-lg">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Let's Build Together</h2>
+                    <p class="text-lg text-gray-600 font-semibold">Ready to find your ideal outsourcing partner or want to join our network? Reach out to us today.</p>
+                </div>
                 <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-xl shadow-inner">
                     <div class="space-y-4">
                         <h3 class="text-2xl font-bold text-gray-800">Get in Touch</h3>
@@ -220,7 +265,9 @@
                             <label for="message" class="sr-only">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Your Message" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
                         </div>
-                        <button type="submit" class="w-full btn bg-blue-600 text-white">Send Message</button>
+                        <div class="flex justify-center">
+                            <button type="submit" class="btn bg-blue-600 text-white border-2 border-blue-700 hover:bg-blue-700 rounded-full">Send Message</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -228,7 +275,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white py-12 rounded-t-2xl mt-12">
         <div class="container mx-auto px-6 text-center">
             <a href="#" class="text-2xl font-bold mb-4 inline-block">
                 <i class="fas fa-network-wired mr-2"></i>BizAid
@@ -474,9 +521,67 @@
                  handleAuthSuccess('Your account has been created with Google! Welcome aboard.');
             });
 
+            // AI Partner Matching Logic
+            const aiMatchBtn = document.getElementById('ai-match-btn');
+            const projectDescription = document.getElementById('project-description');
+            const aiResultsContainer = document.getElementById('ai-results');
+            const loader = document.getElementById('loader');
+            const aiSuggestionsContainer = document.getElementById('ai-suggestions');
+
+            aiMatchBtn.addEventListener('click', async () => {
+                const description = projectDescription.value;
+                if (description.trim() === '') {
+                    // In a real app, you'd show an error message.
+                    console.log("Please enter a project description.");
+                    return;
+                }
+
+                aiResultsContainer.classList.remove('hidden');
+                loader.classList.remove('hidden');
+                aiSuggestionsContainer.innerHTML = '';
+
+                const prompt = `Based on the following project description, recommend the top 3 most suitable types of outsourcing partners. For each recommendation, provide a brief, one-sentence explanation of why they are a good fit. Format the output as a simple list. Project Description: "${description}"`;
+                
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "" // If you want to use models other than gemini-2.5-flash-preview-05-20 or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    
+                    loader.classList.add('hidden');
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        const suggestions = text.split('\n').filter(s => s.trim() !== '');
+                        
+                        suggestions.forEach(suggestion => {
+                            const p = document.createElement('p');
+                            p.textContent = suggestion;
+                            p.className = 'bg-gray-100 p-3 rounded-lg';
+                            aiSuggestionsContainer.appendChild(p);
+                        });
+
+                    } else {
+                       aiSuggestionsContainer.textContent = 'Sorry, we couldn\'t generate suggestions at this time. Please try again later.';
+                    }
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    loader.classList.add('hidden');
+                    aiSuggestionsContainer.textContent = 'An error occurred. Please check the console for details.';
+                }
+            });
+
         });
     </script>
 </body>
 </html>
-
-
