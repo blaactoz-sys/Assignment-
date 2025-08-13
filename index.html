@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizAid | Strategic Business Outsourcing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A very light gray background */
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center;
+        }
+        .section-subtitle {
+            @apply text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto;
+        }
+        .card {
+            @apply bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300;
+        }
+        .btn {
+            @apply px-8 py-3 rounded-lg font-bold transition-transform duration-300 transform hover:-translate-y-1 shadow-lg;
+        }
+        .btn-hero-green {
+            @apply bg-gradient-to-r from-teal-500 to-cyan-400 text-white hover:from-teal-600 hover:to-cyan-500;
+        }
+        .btn-hero-red {
+            @apply bg-gradient-to-r from-rose-500 to-orange-400 text-white hover:from-rose-600 hover:to-orange-500;
+        }
+        .modal-overlay {
+            @apply fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300;
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <!-- Header -->
+    <header id="header" class="py-3 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6">
+             <div class="bg-white rounded-2xl ring-1 ring-black ring-opacity-5">
+                <nav class="flex justify-between items-center px-6 py-3">
+                    <a href="#" class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-network-wired mr-2"></i>BizAid
+                    </a>
+                    <div class="hidden md:flex items-center">
+                        <div class="bg-gray-100 p-1 rounded-full flex items-center space-x-1 shadow-inner">
+                            <a href="#home" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Home</a>
+                            <a href="#about" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">About Us</a>
+                            <a href="#services" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Services</a>
+                            <a href="#how-it-works" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">How It Works</a>
+                            <a href="#contact" class="text-gray-600 hover:bg-white hover:text-blue-600 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-medium">Contact</a>
+                            <button id="login-btn" class="bg-white text-gray-700 hover:bg-gray-200 transition-colors duration-300 px-4 py-2 rounded-full text-sm font-semibold shadow-sm ring-1 ring-gray-200">Login / Sign Up</button>
+                        </div>
+                    </div>
+                    <button id="mobile-menu-btn" class="md:hidden">
+                        <i class="fas fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </nav>
+                 <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-gray-200">
+                    <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="#services" class="block py-2 text-gray-600 hover:text-blue-600">Services</a>
+                    <a href="#how-it-works" class="block py-2 text-gray-600 hover:text-blue-600">How It Works</a>
+                    <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+                    <button id="mobile-login-btn" class="w-full mt-4 btn bg-blue-600 text-white">Login / Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-32 md:py-48 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Connecting Businesses, Creating Opportunities</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">We are the strategic bridge between companies seeking specialized talent and the expert firms who can deliver it. Find your perfect outsourcing partner with us.</p>
+                <div class="space-x-4">
+                    <a href="#contact" class="btn btn-hero-green">Find a Partner</a>
+                    <a href="#contact" class="btn btn-hero-red">Become a Partner</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Your Trusted Intermediary</h2>
+                <p class="section-subtitle">At BizAid, we specialize in making connections that matter. We understand the challenges of finding reliable outsourcing partners. Our mission is to simplify this process, ensuring seamless collaboration and successful project outcomes.</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80" alt="Business meeting" class="rounded-xl shadow-xl w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Meeting';">
+                    </div>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-bullseye text-blue-600 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Our Mission</h3>
+                                <p>To facilitate powerful partnerships by connecting businesses with pre-vetted, high-quality outsourcing firms, fostering growth and innovation for all parties.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-eye text-blue-600 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Our Vision</h3>
+                                <p>To be the leading global platform for business-to-business outsourcing, recognized for our integrity, efficiency, and the exceptional value we create.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-handshake text-blue-600 text-2xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Our Value</h3>
+                                <p>We save you time, reduce risk, and expand your capabilities by providing access to a curated network of trusted professionals and specialized companies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">What We Offer</h2>
+                <p class="section-subtitle">Our services are designed to support your business at every stage of the outsourcing journey.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <i class="fas fa-search-dollar text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Strategic Sourcing</h3>
+                        <p>We identify and connect you with outsourcing companies that have the specific skills, experience, and cultural fit for your project needs.</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fas fa-tasks text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Vendor Management</h3>
+                        <p>We act as a liaison to manage communication, contracts, and deliverables, ensuring your project stays on track and meets your standards.</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fas fa-project-diagram text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Project Outsourcing</h3>
+                        <p>From initial consultation to final delivery, we oversee the entire outsourcing process, allowing you to focus on your core business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Our Simple Process</h2>
+                <p class="section-subtitle">We've streamlined the process of finding the right partner. Here’s how we connect you to success in four easy steps.</p>
+                <div class="relative">
+                    <!-- The connecting line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-300 -translate-y-1/2"></div>
+                    <div class="grid md:grid-cols-4 gap-8 text-center relative">
+                        <div class="space-y-4">
+                            <div class="relative w-24 h-24 mx-auto flex items-center justify-center bg-white border-4 border-blue-600 rounded-full text-blue-600 text-3xl font-bold shadow-lg">1</div>
+                            <h3 class="text-xl font-semibold">Discovery Call</h3>
+                            <p>We start with a detailed consultation to understand your project requirements, goals, and budget.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative w-24 h-24 mx-auto flex items-center justify-center bg-white border-4 border-blue-600 rounded-full text-blue-600 text-3xl font-bold shadow-lg">2</div>
+                            <h3 class="text-xl font-semibold">Partner Matching</h3>
+                            <p>Our experts search our vetted network to find the top 3-5 partners that best match your needs.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative w-24 h-24 mx-auto flex items-center justify-center bg-white border-4 border-blue-600 rounded-full text-blue-600 text-3xl font-bold shadow-lg">3</div>
+                            <h3 class="text-xl font-semibold">Introduction</h3>
+                            <p>We facilitate introductions, share proposals, and help you select the perfect partner for your project.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative w-24 h-24 mx-auto flex items-center justify-center bg-white border-4 border-blue-600 rounded-full text-blue-600 text-3xl font-bold shadow-lg">4</div>
+                            <h3 class="text-xl font-semibold">Launch & Support</h3>
+                            <p>Once you've made your choice, we assist with onboarding and provide ongoing support to ensure a successful partnership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Let's Build Together</h2>
+                <p class="section-subtitle">Ready to find your ideal outsourcing partner or want to join our network? Reach out to us today.</p>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-xl shadow-inner">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Get in Touch</h3>
+                        <p>Fill out the form and our team will get back to you within 24 hours.</p>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <span>123 Business Bay, New York, USA</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-envelope text-blue-600"></i>
+                            <span>contact@bizaid.com</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-phone text-blue-600"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn bg-blue-600 text-white">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <a href="#" class="text-2xl font-bold mb-4 inline-block">
+                <i class="fas fa-network-wired mr-2"></i>BizAid
+            </a>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 BizAid. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login/Sign Up Page -->
+    <div id="auth-page" class="hidden fixed inset-0 bg-gray-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md relative">
+            <button id="back-to-home-btn" class="absolute top-4 left-4 text-gray-500 hover:text-gray-800">
+                <i class="fas fa-arrow-left text-2xl"></i>
+            </button>
+            <div class="p-8 mt-8">
+                <!-- Tabs -->
+                <div class="flex border-b mb-6">
+                    <button id="login-tab" class="flex-1 py-2 font-semibold text-blue-600 border-b-2 border-blue-600">Login</button>
+                    <button id="signup-tab" class="flex-1 py-2 font-semibold text-gray-500">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="space-y-4">
+                    <h3 class="text-2xl font-bold text-center text-gray-800">Welcome Back!</h3>
+                    <div>
+                        <label for="login-email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="login-email" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="login-password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="login-password" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <button type="submit" class="w-full btn bg-blue-600 text-white">Login</button>
+                    <div class="my-4 flex items-center">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="mx-4 text-gray-500 text-sm">OR</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+                    <button type="button" id="google-login-btn" class="w-full btn bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 flex items-center justify-center transform hover:-translate-y-0">
+                        <img src="https://www.google.com/favicon.ico" alt="Google icon" class="w-5 h-5 mr-3">
+                        Sign in with Google
+                    </button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="hidden space-y-4">
+                    <h3 class="text-2xl font-bold text-center text-gray-800">Create an Account</h3>
+                    <div>
+                        <label for="signup-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="signup-name" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="signup-email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="signup-email" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="signup-password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="signup-password" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <button type="submit" class="w-full btn bg-blue-600 text-white">Create Account</button>
+                    <div class="my-4 flex items-center">
+                        <div class="flex-grow border-t border-gray-300"></div>
+                        <span class="mx-4 text-gray-500 text-sm">OR</span>
+                        <div class="flex-grow border-t border-gray-300"></div>
+                    </div>
+                    <button type="button" id="google-signup-btn" class="w-full btn bg-white border border-gray-300 text-gray-700 hover:bg-gray-100 flex items-center justify-center transform hover:-translate-y-0">
+                        <img src="https://www.google.com/favicon.ico" alt="Google icon" class="w-5 h-5 mr-3">
+                        Sign up with Google
+                    </button>
+                </form>
+            </div>
+             <!-- Floating Success Message -->
+            <div id="auth-success-message" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none">
+                <p>Success!</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Message Modal -->
+    <div id="success-modal" class="modal-overlay hidden opacity-0">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm mx-4 p-8 text-center">
+            <i class="fas fa-check-circle text-5xl text-green-500 mb-4"></i>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Success!</h3>
+            <p id="success-message" class="text-gray-600">Your message has been sent.</p>
+            <button id="close-success-modal-btn" class="mt-6 btn bg-blue-600 text-white">Close</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Main elements
+            const mainContent = document.querySelector('main');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const authPage = document.getElementById('auth-page');
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Hide mobile menu on click
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Auth Page Logic
+            const openAuthPageBtns = [document.getElementById('login-btn'), document.getElementById('mobile-login-btn')];
+            const backToHomeBtn = document.getElementById('back-to-home-btn');
+            
+            const loginTab = document.getElementById('login-tab');
+            const signupTab = document.getElementById('signup-tab');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+
+            function showAuthPage() {
+                mainContent.classList.add('hidden');
+                header.classList.add('hidden');
+                footer.classList.add('hidden');
+                authPage.classList.remove('hidden');
+            }
+
+            function hideAuthPage() {
+                mainContent.classList.remove('hidden');
+                header.classList.remove('hidden');
+                footer.classList.remove('hidden');
+                authPage.classList.add('hidden');
+            }
+
+            openAuthPageBtns.forEach(btn => btn.addEventListener('click', showAuthPage));
+            backToHomeBtn.addEventListener('click', hideAuthPage);
+
+            function switchAuthTab(activeTab) {
+                const isLoginActive = activeTab === 'login';
+
+                // Update login tab styles
+                loginTab.classList.toggle('text-blue-600', isLoginActive);
+                loginTab.classList.toggle('border-blue-600', isLoginActive);
+                loginTab.classList.toggle('border-b-2', isLoginActive);
+                loginTab.classList.toggle('text-gray-500', !isLoginActive);
+
+                // Update signup tab styles
+                signupTab.classList.toggle('text-blue-600', !isLoginActive);
+                signupTab.classList.toggle('border-blue-600', !isLoginActive);
+                signupTab.classList.toggle('border-b-2', !isLoginActive);
+                signupTab.classList.toggle('text-gray-500', isLoginActive);
+                
+                // Show/hide forms
+                loginForm.classList.toggle('hidden', !isLoginActive);
+                signupForm.classList.toggle('hidden', isLoginActive);
+            }
+
+            loginTab.addEventListener('click', () => switchAuthTab('login'));
+            signupTab.addEventListener('click', () => switchAuthTab('signup'));
+
+
+            // Form Submission & Success Modal
+            const contactForm = document.getElementById('contact-form');
+            const successModal = document.getElementById('success-modal');
+            const successMessage = document.getElementById('success-message');
+            const closeSuccessModalBtn = document.getElementById('close-success-modal-btn');
+
+            function showSuccessModal(message) {
+                successMessage.textContent = message;
+                successModal.classList.remove('hidden');
+                setTimeout(() => successModal.classList.remove('opacity-0'), 10);
+            }
+
+            function hideSuccessModal() {
+                successModal.classList.add('opacity-0');
+                setTimeout(() => successModal.classList.add('hidden'), 300);
+            }
+            
+            closeSuccessModalBtn.addEventListener('click', hideSuccessModal);
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showSuccessModal('Your message has been sent successfully. We will get back to you shortly.');
+                contactForm.reset();
+            });
+            
+            function handleAuthSuccess(message) {
+                const authSuccessMessage = document.getElementById('auth-success-message');
+                const authSuccessText = authSuccessMessage.querySelector('p');
+
+                // Set message and show it
+                authSuccessText.textContent = message;
+                authSuccessMessage.classList.remove('opacity-0');
+
+                // After a delay, hide the message and the auth page
+                setTimeout(() => {
+                    authSuccessMessage.classList.add('opacity-0');
+                    setTimeout(() => {
+                         hideAuthPage();
+                    }, 300); // Wait for fade out before hiding page
+                }, 2000); // Show message for 2 seconds
+            }
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                handleAuthSuccess('You have successfully logged in!');
+                loginForm.reset();
+            });
+            
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                handleAuthSuccess('Your account has been created successfully! Welcome aboard.');
+                signupForm.reset();
+            });
+
+            // Google Sign-In Buttons
+            const googleLoginBtn = document.getElementById('google-login-btn');
+            const googleSignupBtn = document.getElementById('google-signup-btn');
+
+            googleLoginBtn.addEventListener('click', () => {
+                handleAuthSuccess('You have successfully logged in with Google!');
+            });
+
+            googleSignupBtn.addEventListener('click', () => {
+                 handleAuthSuccess('Your account has been created with Google! Welcome aboard.');
+            });
+
+        });
+    </script>
+</body>
+</html>
+
+
